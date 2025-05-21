@@ -90,3 +90,9 @@
 - `addCoffee(name)`는 `prevName`을 받아 새로운 Promise를 반환하는 고차 함수
 - 이 구조는 체이닝 로직을 반복적으로 재사용 가능
 - 이전 예제(4-14.js)의 구조를 함수형으로 개선함
+
+### 4-16: Generator를 활용한 비동기 흐름 제어
+
+- `function*`으로 제너레이터 정의 → `yield`를 통해 흐름을 일시 정지 및 재개 가능
+- `addCoffee()`는 `setTimeout()` 내에서 `coffeeMaker.next()`를 호출하여 다음 단계로 흐름 전달
+- 각 단계에서 누적된 이름이 출력됨
