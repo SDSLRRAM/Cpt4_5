@@ -32,3 +32,11 @@
 - `forEach` 내 일반 함수도 `this`는 기본적으로 `window`
 - `addEventListener` 내의 일반 함수에서는 `this`가 이벤트가 발생한 DOM 요소(button)를 가리킴
 - 즉, 함수가 **어떻게 호출되었는가**에 따라 `this`가 다르게 바인딩됨
+
+### 4-7: 객체 메서드를 콜백으로 전달할 때의 this
+
+- `obj.logValues(1, 2)`는 `this`가 `obj`를 가리켜 정상 출력
+- 하지만 `[4, 5, 6].forEach(obj.logValues)`처럼 콜백으로 직접 넘기면
+  `this` 바인딩이 끊어져 전역 객체(window)가 `this`가 됨
+- 메서드가 일반 함수처럼 호출되기 때문으로 보임임
+- `bind(obj)` 또는 화살표 함수로 감싸서 명시적으로 `this`를 고정해야 함
