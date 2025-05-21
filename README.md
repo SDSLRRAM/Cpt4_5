@@ -51,3 +51,11 @@
 - `setTimeout(obj1.func, 1000)`처럼 메서드를 직접 전달하면 `this`는 바인딩되지 않음
 - 하지만 `this`를 사용하지 않고 `obj1.name`을 직접 참조하므로 문제 없음
 - 단, `obj1` 참조가 유지되어야 함
+
+### 4-10: 메서드 참조, call(), setTimeout에서의 함수 실행 비교
+
+- `obj2.func = obj1.func`로 참조를 복사했지만 `func` 내부는 `obj1.name`에 직접 접근
+- 따라서 `obj2.func()`도 여전히 `'obj1'` 출력
+- `callback2`와 `callback3`은 `obj1.func()`와 `obj1.func.call(obj3)`의 실행 결과를 담고 있어
+  `setTimeout(callback2, ...)`은 아무 동작도 하지 않음
+- `setTimeout()`에는 함수 자체를 전달해야 하며, `callback2`, `callback3`은 함수 호출 결과이므로 `undefined`가 들어감
