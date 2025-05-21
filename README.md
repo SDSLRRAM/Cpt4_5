@@ -59,3 +59,10 @@
 - `callback2`와 `callback3`은 `obj1.func()`와 `obj1.func.call(obj3)`의 실행 결과를 담고 있어
   `setTimeout(callback2, ...)`은 아무 동작도 하지 않음
 - `setTimeout()`에는 함수 자체를 전달해야 하며, `callback2`, `callback3`은 함수 호출 결과이므로 `undefined`가 들어감
+
+### 4-11: bind()로 this 고정
+
+- `obj1.func.bind(obj1)`는 `this`를 `obj1`로 고정한 새로운 함수 반환
+- `setTimeout()`에 그 반환된 함수를 넘겼기 때문에, 1초 후 `'obj1'` 출력
+- `obj1.func.bind(obj2)`는 `this`를 `obj2`로 고정한 새로운 함수 반환. 따라서`'obj2'` 출력
+- bind()는 함수 자체는 실행하지 않고, this가 고정된 새 함수를 반환
