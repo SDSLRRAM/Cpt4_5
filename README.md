@@ -25,3 +25,10 @@
 
 - `map()` 메서드를 커스터마이즈하여 직접 정의, 콜백 함수에 `call()`을 이용해 `thisArg`를 지정하고, 현재 Arg/index/array 전달
 - `thisArg`가 없을 경우 기본값으로 `window` 객체 사용
+
+### 4-6: 콜백 함수와 이벤트에서의 `this`
+
+- `setTimeout` 내의 일반 함수에서의 `this`는 `window` 임
+- `forEach` 내 일반 함수도 `this`는 기본적으로 `window`
+- `addEventListener` 내의 일반 함수에서는 `this`가 이벤트가 발생한 DOM 요소(button)를 가리킴
+- 즉, 함수가 **어떻게 호출되었는가**에 따라 `this`가 다르게 바인딩됨
