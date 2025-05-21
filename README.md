@@ -96,3 +96,10 @@
 - `function*`으로 제너레이터 정의 → `yield`를 통해 흐름을 일시 정지 및 재개 가능
 - `addCoffee()`는 `setTimeout()` 내에서 `coffeeMaker.next()`를 호출하여 다음 단계로 흐름 전달
 - 각 단계에서 누적된 이름이 출력됨
+
+### 4-17: async/await를 사용한 비동기 흐름 제어
+
+- `addCoffee()`는 500ms 후 이름을 resolve하는 Promise 반환
+- `coffeeMaker()`는 async 함수로 선언되어 내부에서 await 사용 가능
+- `_addCoffee()`는 각 커피 이름을 순차적으로 coffeeList에 추가
+- `await`를 사용함으로써 코드의 흐름이 동기적인 형태처럼 자연스럽게 보임
