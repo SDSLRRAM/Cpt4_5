@@ -187,3 +187,9 @@
 - `createCar()`는 내부 변수 `fuel`, `power`, `moved`를 지역 스코프에 정의하고 외부에 노출하지 않음
 - 반환된 객체는  `run()` 메서드를 통해 주행 시도, `moved` 는 getter로 읽기만 가능하게 정의
 - 주행 로직은 연료가 충분할 경우 `moved` 증가, 연료 차감
+
+### 5-12: Object.freeze()를 이용한 불변 객체(immutable objec) 생성
+
+- `createCar()`는 내부 상태(`fuel`, `power`, `moved`)를 클로저로 은닉
+- `publicMembers` 객체는 외부에서 접근 가능한 메서드와 getter만 포함
+- `Object.freeze(publicMembers)`은 속성 추가/변경/삭제 불가능 메서드 오버라이드 및 컨트롤 차단.
