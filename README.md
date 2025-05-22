@@ -161,3 +161,10 @@
 - `alertFruit(fruit)`은 외부에서 직접 호출할 때는 정확히 동작함  
 - 하지만 `addEventListener('click', alertFruit)`으로 이벤트 등록 시 `alertFruit`은 매개변수를 전달받지 못해 `undefined` 출력됨
 - `alertFruit`은 `fruit` 값을 전달받아야 정상 동작하지만, 이벤트 핸들러로 직접 참조만 넘기면 이벤트 객체만 전달됨
+
+### 5-8: bind()로 argument를 고정한 이벤트 핸들러
+
+- `alertFruit.bind(null, fruit)`는 `fruit` 값을 고정한 새 함수를 반환
+- 이렇게 생성된 함수는 클릭 이벤트 시에도 고정된 `fruit`을 인자로 전달받음
+- 클로저를 직접 사용하지 않아도, 각 항목별로 독립된 함수 생성 효과를 얻음
+- `bind()`는 첫 번째 인자로 `this`를 고정하는데, 이 경우 `null`을 넘겨 `this`는 필요하지 않음
