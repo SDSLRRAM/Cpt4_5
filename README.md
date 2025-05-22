@@ -155,3 +155,9 @@
 - 각 항목에 `click` 이벤트 핸들러를 등록하면서 `fruit`을 클로저로 캡처
 - 클릭 시 `alert('your choice is ' + fruit)`가 정확히 해당 항목에 대한 메시지 출력
 - 실행 시점에 `fruit` 값이 변경되지 않도록 클로저가 각 `fruit` 값을 기억하고 있음
+
+### 5-7: 공통 핸들러 함수 사용 시 클로저 사용하지 않을 경우 문제제
+
+- `alertFruit(fruit)`은 외부에서 직접 호출할 때는 정확히 동작함  
+- 하지만 `addEventListener('click', alertFruit)`으로 이벤트 등록 시 `alertFruit`은 매개변수를 전달받지 못해 `undefined` 출력됨
+- `alertFruit`은 `fruit` 값을 전달받아야 정상 동작하지만, 이벤트 핸들러로 직접 참조만 넘기면 이벤트 객체만 전달됨
