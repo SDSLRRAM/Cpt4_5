@@ -193,3 +193,9 @@
 - `createCar()`는 내부 상태(`fuel`, `power`, `moved`)를 클로저로 은닉
 - `publicMembers` 객체는 외부에서 접근 가능한 메서드와 getter만 포함
 - `Object.freeze(publicMembers)`은 속성 추가/변경/삭제 불가능 메서드 오버라이드 및 컨트롤 차단.
+
+### 5-13: bind()와 arguments를 활용한 부분 적용
+
+- `add()` 함수는 전달된 모든 argument들을 합산
+- `add.bind(null, 1, 2, 3, 4, 5)`로 앞의 다섯 argument를 고정한 새로운 함수 `addPartial` 생성
+- `addPartial(6, 7, 8, 9, 10)` 실행 시 총 10개의 인자가 `add()`에 전달됨
