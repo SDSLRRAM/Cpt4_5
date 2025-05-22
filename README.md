@@ -122,9 +122,14 @@
 - `outer2()`를 여러 번 호출해도 `a`는 독립적으로 증가
 - 클로저는 함수가 선언 당시의 스코프 체인을 기억하여 외부 변수를 참조하기 때문
 
-### 5-4: IIFE와 클로저를 이용한 setInterval 반복 컨트롤롤
+### 5-4: 클로저 + IIFE 구조
 
-- 즉시 실행 함수(IIFE) 내부에서 `a`와 `intervalId`를 정의하여 외부로부터 은닉
-- `inner()` 함수는 `a`를 증가시키며 `a >= 10`이면 `clearInterval()`로 타이머 종료
-- `setInterval(inner, 1000)`을 통해 1초 간격으로 1부터 10까지 출력
-- 클로저를 활용하여 `inner()` 함수가 `a`와 `intervalId`에 접근 할 수 있음
+- 첫 번째 IIFE:
+- `a`는 외부에서 접근 불가능. IIFE 내부에서 `a`와 `intervalId`를 정의하였기 때문에.
+- `setInterval()`로 1초마다 `inner()` 호출 → `a`가 10 이상이 되면 자동 종료
+- 클로저를 통해 `inner()`가 `a`와 `intervalId`를 지속적으로 참조
+
+- 두 번째 IIFE:
+- 버튼 생성 후 클릭 이벤트 등록
+- 이벤트 핸들러 내부에서 `count`는 `addEventListener()`가 선언된 시점의 렉시컬 스코프에 묶여 있음 → 클로저로 카운트 상태 유지
+- 출력: 클릭할 때마다 `1 times clicked`, `2 times clicked`, ...
