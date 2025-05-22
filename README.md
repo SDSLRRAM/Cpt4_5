@@ -205,3 +205,10 @@
 - `partial(func, ...args)`는 첫 번째 인자를 함수로 받아, 이후 argument들을 고정한 새로운 함수를 반환
 - 반환된 함수는 추가 argument를 받아 기존 argument와 결합하여 `func.apply()`로 실행
 - 내부적으로 `arguments`, `slice`, `concat` 사용하여 argument 처리
+
+### 5-15: Placeholder(_)를 지원하는 partial 함수 구현
+
+- `Object.defineProperty(window, '_', ...)`를 통해 `_`를 글로벌 상수로 정의
+- 값: `'EMPTY_SPACE'` (변경 불가, 열거 불가)
+
+- `partial2(func, ...args)`: 인자 목록 중 `_`이 있는 자리를 나중에 전달받은 인자로 대체 `shift()`를 통해 순서대로 빈칸을 채우고, 남은 인자는 끝에 concat을 수행
