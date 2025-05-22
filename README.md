@@ -199,3 +199,9 @@
 - `add()` 함수는 전달된 모든 argument들을 합산
 - `add.bind(null, 1, 2, 3, 4, 5)`로 앞의 다섯 argument를 고정한 새로운 함수 `addPartial` 생성
 - `addPartial(6, 7, 8, 9, 10)` 실행 시 총 10개의 인자가 `add()`에 전달됨
+
+### 5-14: 사용자 정의 partial() 함수 구현
+
+- `partial(func, ...args)`는 첫 번째 인자를 함수로 받아, 이후 argument들을 고정한 새로운 함수를 반환
+- 반환된 함수는 추가 argument를 받아 기존 argument와 결합하여 `func.apply()`로 실행
+- 내부적으로 `arguments`, `slice`, `concat` 사용하여 argument 처리
